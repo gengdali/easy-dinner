@@ -1,10 +1,7 @@
 package com.huizi.easydinner.ums.service.impl;
 
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.huizi.easydinner.ums.entity.UmsAdmin;
-import com.huizi.easydinner.ums.mapper.UmsAdminMapper;
-import com.huizi.easydinner.ums.service.UmsAdminService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

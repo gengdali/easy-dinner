@@ -1,8 +1,10 @@
 package com.huizi.easydinner.ums.entity;
-import com.baomidou.mybatisplus.annotation.*;
+
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 

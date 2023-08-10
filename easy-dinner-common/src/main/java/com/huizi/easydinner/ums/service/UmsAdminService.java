@@ -1,8 +1,7 @@
 package com.huizi.easydinner.ums.service;
 
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.huizi.easydinner.ums.entity.UmsAdmin;
+
 
 /**
  * <p>
