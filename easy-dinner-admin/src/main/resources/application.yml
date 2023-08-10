@@ -1,0 +1,60 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: personal-admin
+  datasource:
+    url: jdbc:mysql://localhost:3306/personal?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 123456
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    auto-mapping-behavior: partial
+    map-underscore-to-camel-case: true
+
+secure:
+  ignored:
+    urls: #安全路径白名单
+      - /swagger-ui/
+      - /swagger-resources/**
+      - /**/v2/api-docs
+      - /**/*.html
+      - /**/*.js
+      - /**/*.css
+      - /**/*.png
+      - /**/*.map
+      - /favicon.ico
+      - /actuator/**
+      - /druid/**
+      - /admin/login
+      - /admin/register
+      - /admin/info
+      - /admin/logout
+
+logging:
+  level:
+    root: info
+    com.gw.personal: debug
+
+#async:
+#  # 配置核心线程数
+#  core_pool_size: 10
+#  # 配置最大线程数
+#  max_pool_size: 10
+#  # 配置队列大小
+#  queue_capacity: 10000
+#  # 配置线程池中的线程的名称前缀
+#  prefix: async-service-
+
+#host:
+#  personal:
+#    admin: http://localhost:8080
