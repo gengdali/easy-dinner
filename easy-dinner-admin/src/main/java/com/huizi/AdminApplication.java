@@ -12,7 +12,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
  * @DATE: 2023/5/18 11:03
  */
 @SpringBootApplication
-@MapperScan("com.gw.personal.mapper")
+@MapperScan("com.huizi.mapper")
 @EnableConfigurationProperties
 public class AdminApplication {
     public static void main(String[] args) {
