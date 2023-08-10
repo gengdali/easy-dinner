@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: easy-dinner
+    name: easyDinner
   profiles:
     active: dev #默认为开发环境
   servlet:
@@ -51,7 +51,7 @@ secure:
 logging:
   level:
     root: info
-    com.gw.personal: debug
+    com.huizi.easydinner: debug
 
 #async:
 #  # 配置核心线程数
