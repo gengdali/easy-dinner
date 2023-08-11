@@ -1,27 +1,18 @@
-package com.huizi.easydinner.ums.entity;
+package com.huizi.easydinner.ums.vo;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
- * <p>
- * 账号表
- * </p>
- *
- * @author gw
- * @since 2023-05-19
+ * @PROJECT_NAME: easy-dinner
+ * @DESCRIPTION:账号VO类
+ * @AUTHOR: 12615
+ * @DATE: 2023/8/11 16:24
  */
 @Data
-@TableName("ums_admin")
-@ApiModel(value = "UmsAdmin对象", description = "账号表")
-public class UmsAdmin implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class UmsAdminVO {
     @ApiModelProperty(value = "id")
     private Long id;
 

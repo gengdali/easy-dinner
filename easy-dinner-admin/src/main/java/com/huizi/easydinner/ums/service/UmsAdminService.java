@@ -2,6 +2,7 @@ package com.huizi.easydinner.ums.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.huizi.easydinner.ums.dto.UmsAdminParam;
 import com.huizi.easydinner.ums.entity.UmsAdmin;
 import com.huizi.easydinner.ums.entity.UmsResource;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +18,27 @@ import java.util.List;
  * @since 2023-05-19
  */
 public interface UmsAdminService extends IService<UmsAdmin> {
+
+    /**
+     * 注册功能
+     */
+    UmsAdmin register(UmsAdminParam umsAdminParam);
+
+    /**
+     * 登录功能
+     *
+     * @param username 用户名
+     * @param password 密码
+     * @return 生成的JWT的token
+     */
+    String login(String username, String password);
+
+    /**
+     * 刷新token的功能
+     *
+     * @param oldToken 旧的token
+     */
+    String refreshToken(String oldToken);
 
     /**
      * 根据用户名获取后台管理员
