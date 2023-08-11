@@ -1,7 +1,6 @@
 package com.huizi.easydinner.config;
 
 import com.huizi.easydinner.component.*;
-import com.huizi.easydinner.component.*;
 import com.huizi.easydinner.util.JwtTokenUtil;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;

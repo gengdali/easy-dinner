@@ -43,7 +43,7 @@ secure:
       - /favicon.ico
       - /actuator/**
       - /druid/**
-      - /admin/login
+      - /admin/**
       - /admin/register
       - /admin/info
       - /admin/logout

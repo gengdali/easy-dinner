@@ -2,7 +2,9 @@ package com.huizi.easydinner.config;
 
 
 import com.huizi.easydinner.domain.SwaggerProperties;
+
 import org.springframework.context.annotation.Bean;
+
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -10,6 +12,7 @@ import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,9 +48,9 @@ public abstract class BaseSwaggerConfig {
                 .build();
     }
 
-    private List<ApiKey> securitySchemes() {
+    private List<SecurityScheme> securitySchemes() {
         //设置请求头信息
-        List<ApiKey> result = new ArrayList<>();
+        List<SecurityScheme> result = new ArrayList<>();
         ApiKey apiKey = new ApiKey("Authorization", "Authorization", "header");
         result.add(apiKey);
         return result;

@@ -1,11 +1,11 @@
-package com.gw.personal;/*
-package com.gw.personal;
+package com.huizi.easydinner;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.setting.dialect.Props;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.LikeTable;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-*/
 /**
  * @PROJECT_NAME: air_defense_basement_survey
  * @DESCRIPTION:自定义模板代码生成器
@@ -37,7 +36,7 @@ import java.util.Scanner;
  * 初始化策略配置
  * <p>
  * 初始化自定义配置
- *//*
+ */
 
 public class CustomMybatisPlusGenerator {
     public static void main(String[] args) {
@@ -56,11 +55,9 @@ public class CustomMybatisPlusGenerator {
         autoGenerator.execute();
     }
 
-    */
-/**
- * 读取控制台内容信息
- *//*
-
+    /**
+     * 读取控制台内容信息
+     */
     private static String scanner(String tip) {
         Scanner scanner = new Scanner(System.in);
         System.out.println(("请输入" + tip + "："));
@@ -73,11 +70,9 @@ public class CustomMybatisPlusGenerator {
         throw new MybatisPlusException("请输入正确的" + tip + "！");
     }
 
-    */
-/**
- * 初始化全局配置
- *//*
-
+    /**
+     * 初始化全局配置
+     */
     private static GlobalConfig initGlobalConfig(String projectPath) {
         GlobalConfig globalConfig = new GlobalConfig();
         globalConfig.setOutputDir(projectPath + "/src/main/java");
@@ -96,11 +91,9 @@ public class CustomMybatisPlusGenerator {
         return globalConfig;
     }
 
-    */
-/**
- * 初始化数据源配置
- *//*
-
+    /**
+     * 初始化数据源配置
+     */
     private static DataSourceConfig initDataSourceConfig() {
         Props props = new Props("generator.properties");
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
@@ -111,39 +104,32 @@ public class CustomMybatisPlusGenerator {
         return dataSourceConfig;
     }
 
-    */
-/**
- * 初始化包配置
- *//*
-
+    /**
+     * 初始化包配置
+     */
     private static PackageConfig initPackageConfig(String moduleName) {
         Props props = new Props("generator.properties");
         PackageConfig packageConfig = new PackageConfig();
         packageConfig.setModuleName(moduleName);
         packageConfig.setParent(props.getStr("package.base"));
-        packageConfig.setEntity("model");
+        packageConfig.setEntity("entity");
         return packageConfig;
     }
 
-    */
-/**
- * 初始化模板配置
- *//*
-
+    /**
+     * 初始化模板配置
+     */
     private static TemplateConfig initTemplateConfig() {
         TemplateConfig templateConfig = new TemplateConfig();
-        templateConfig.setController("/templates/controller.java.vm");
         //可以对controller、service、entity模板进行配置
         //mapper.xml模板需单独配置
         templateConfig.setXml(null);
         return templateConfig;
     }
 
-    */
-/**
- * 初始化策略配置
- *//*
-
+    /**
+     * 初始化策略配置
+     */
     private static StrategyConfig initStrategyConfig(String[] tableNames) {
         StrategyConfig strategyConfig = new StrategyConfig();
         strategyConfig.setNaming(NamingStrategy.underline_to_camel);
@@ -161,11 +147,9 @@ public class CustomMybatisPlusGenerator {
         return strategyConfig;
     }
 
-    */
-/**
- * 初始化自定义配置
- *//*
-
+    /**
+     * 初始化自定义配置
+     */
     private static InjectionConfig initInjectionConfig(String projectPath, String moduleName) {
         // 自定义配置
         InjectionConfig injectionConfig = new InjectionConfig() {
@@ -183,7 +167,7 @@ public class CustomMybatisPlusGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + "/src/main/resources/mapper/" + moduleName
+                return projectPath+ "/src/main/java/com/huizi/easydinner/"+moduleName  +"/mapper/xml"
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
@@ -191,4 +175,4 @@ public class CustomMybatisPlusGenerator {
         return injectionConfig;
     }
 }
-*/
+

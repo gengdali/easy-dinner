@@ -2,8 +2,6 @@ package com.huizi.easydinner.config;
 
 
 import com.huizi.easydinner.domain.SwaggerProperties;
-import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -18,10 +16,10 @@ public class SwaggerConfig extends BaseSwaggerConfig {
     @Override
     public SwaggerProperties swaggerProperties() {
         return SwaggerProperties.builder()
-                .apiBasePackage("com.macro.mall.controller")
-                .title("mall后台系统")
-                .description("mall后台相关接口文档")
-                .contactName("macro")
+                .apiBasePackage("com.huizi.easydinner")
+                .title("后台系统")
+                .description("后台相关接口文档")
+                .contactName("gengwei")
                 .version("1.0")
                 .enableSecurity(true)
                 .build();
