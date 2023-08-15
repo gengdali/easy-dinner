@@ -31,10 +31,11 @@
         <pagehelper.version>5.3.0</pagehelper.version>
         <druid.version>1.2.9</druid.version>
         <hutool.version>5.8.0</hutool.version>
-        <mybatis-plus-generator.version>3.3.2</mybatis-plus-generator.version>
-        <mybatis-plus.version>3.3.2</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.5.1</mybatis-plus-generator.version>
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
         <mybatis-plus-starter.version>3.4.3</mybatis-plus-starter.version>
         <velocity.version>2.2</velocity.version>
+        <freemarker.version>2.3.31</freemarker.version>
         <mysql-connector.version>8.0.29</mysql-connector.version>
         <spring-data-commons.version>2.7.0</spring-data-commons.version>
         <knife4j.version>3.0.3</knife4j.version>
@@ -100,18 +101,18 @@
                 <artifactId>mybatis-plus-generator</artifactId>
                 <version>${mybatis-plus-generator.version}</version>
             </dependency>
-            <!--&lt;!&ndash;freemarker模板引擎&ndash;&gt;
+            <!--&lt;!&ndash;freemarker模板引擎-->
             <dependency>
                 <groupId>org.freemarker</groupId>
                 <artifactId>freemarker</artifactId>
                 <version>${freemarker.version}</version>
-            </dependency>-->
+            </dependency>
             <!--Velocity模板引擎-->
-            <dependency>
+            <!--<dependency>
                 <groupId>org.apache.velocity</groupId>
                 <artifactId>velocity-engine-core</artifactId>
                 <version>${velocity.version}</version>
-            </dependency>
+            </dependency>-->
             <!--集成druid连接池-->
             <dependency>
                 <groupId>com.alibaba</groupId>
