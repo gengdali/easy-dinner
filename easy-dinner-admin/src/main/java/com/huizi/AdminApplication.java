@@ -33,9 +33,8 @@ public class AdminApplication {
             e.printStackTrace();
         }
         String port = env.getProperty("server.port");
-        /*String path = env.getProperty("server.servlet.context-path");*/
         log.info("\n----------------------------------------------------------\n\t" +
-                "Application Jeecg-Boot is running! Access URLs:\n\t" +
+                "Application is running! Access URLs:\n\t" +
                 "Local: \t\thttp://localhost:" + port + "/\n\t" +
                 "External: \thttp://" + ip + ":" + port + "/\n\t" +
                 "Swagger文档: \thttp://" + ip + ":" + port + "/swagger-ui/index.html\n" +
