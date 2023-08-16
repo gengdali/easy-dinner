@@ -85,7 +85,7 @@ public class MybatisPlusGenerator {
 
         });
         /**
-         * 6.策略配置
+         * 4.策略配置
          */
         fastAutoGenerator.strategyConfig(builder -> {
             builder.enableCapitalMode()    // 开启大写命名
@@ -97,7 +97,7 @@ public class MybatisPlusGenerator {
 
 
         /**
-         * 6.1 Entity策略配置
+         * 4.1 Entity策略配置
          */
         fastAutoGenerator.strategyConfig(builder -> {
             builder.entityBuilder()
@@ -108,7 +108,7 @@ public class MybatisPlusGenerator {
         });
 
         /**
-         * 6.2 Controller策略配置
+         * 4.2 Controller策略配置
          */
         fastAutoGenerator.strategyConfig(builder -> {
             builder.controllerBuilder()
@@ -116,7 +116,7 @@ public class MybatisPlusGenerator {
                     .enableHyphenStyle();
         });
         /**
-         * 6.3 Service策略配置
+         * 4.3 Service策略配置
          格式化service接口和实现类的文件名称，去掉默认的ServiceName前面的I ----
          */
         fastAutoGenerator.strategyConfig(builder -> {
@@ -126,7 +126,7 @@ public class MybatisPlusGenerator {
         });
 
         /**
-         * 6.4 Mapper策略配置
+         * 4.4 Mapper策略配置
          格式化 mapper文件名,格式化xml实现类文件名称
          */
         fastAutoGenerator.strategyConfig(builder -> {
