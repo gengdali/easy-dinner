@@ -27,7 +27,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -127,7 +126,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
 
     @Override
     public List<UmsResource> getResourceList(Long adminId) {
-        List<UmsResource> resourceList = new ArrayList<>();
+        List<UmsResource> resourceList = resourceMapper.selectList(new LambdaQueryWrapper<UmsResource>());
         if (CollUtil.isNotEmpty(resourceList)) {
             return resourceList;
         }
