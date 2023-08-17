@@ -32,8 +32,8 @@
         <druid.version>1.2.9</druid.version>
         <hutool.version>5.8.0</hutool.version>
         <mybatis-plus-generator.version>3.5.1</mybatis-plus-generator.version>
-        <mybatis-plus.version>3.5.1</mybatis-plus.version>
-        <mybatis-plus-starter.version>3.4.3</mybatis-plus-starter.version>
+        <!--<mybatis-plus.version>3.5.1</mybatis-plus.version>-->
+        <mybatis-plus-starter.version>3.5.1</mybatis-plus-starter.version>
         <velocity.version>2.2</velocity.version>
         <freemarker.version>2.3.31</freemarker.version>
         <mysql-connector.version>8.0.29</mysql-connector.version>
@@ -94,7 +94,7 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus.version}</version>
+                <version>${mybatis-plus-starter.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -161,11 +161,11 @@
                 <artifactId>poi</artifactId>
                 <version>${poi.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>${pagehelper-starter.version}</version>
-            </dependency>
+            <!-- <dependency>
+                 <groupId>com.github.pagehelper</groupId>
+                 <artifactId>pagehelper-spring-boot-starter</artifactId>
+                 <version>${pagehelper-starter.version}</version>
+             </dependency>-->
             <!--集成logstash-->
             <dependency>
                 <groupId>net.logstash.logback</groupId>

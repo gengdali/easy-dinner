@@ -2,7 +2,9 @@ package com.huizi.easydinner.ums.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.huizi.easydinner.ums.entity.UmsAdmin;
+import com.huizi.easydinner.ums.vo.UmsAdminVO;
 
 /**
  * <p>
@@ -14,4 +16,5 @@ import com.huizi.easydinner.ums.entity.UmsAdmin;
  */
 public interface UmsAdminMapper extends BaseMapper<UmsAdmin> {
 
+    Page<UmsAdminVO> adminList(String keyword, Page<UmsAdmin> umsAdminVOPage);
 }

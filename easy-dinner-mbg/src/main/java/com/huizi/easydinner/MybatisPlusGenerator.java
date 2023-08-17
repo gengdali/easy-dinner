@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.querys.MySqlQuery;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
@@ -14,6 +15,7 @@ import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.baomidou.mybatisplus.generator.keywords.MySqlKeyWordsHandler;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -46,7 +48,7 @@ public class MybatisPlusGenerator {
 
         String outputDir = System.getProperty("user.dir") + "/" + moduleName + "/src/main/java";
 
-        String pathInfo = System.getProperty("user.dir") + "/" + moduleName + "/" + "src/main/java/" + childrenSortPackageName + "/mapper/xml";
+        String pathInfo = System.getProperty("user.dir") + "/" + moduleName + "/src/main/resources/mapper/" + childrenSortPackageName;
         /**
          * 1.数据库配置(设置数据源)
          配置数据库连接以及需要使用的字段
@@ -78,10 +80,9 @@ public class MybatisPlusGenerator {
                     .service("service")
                     .serviceImpl("service.impl")
                     .mapper("mapper")
-                    .xml("mapper.xml")
                     .entity("entity") //设置entity包名
-                    .other("dto"); // 设置dto包名
-            /*.pathInfo(Collections.singletonMap(OutputFile.mapperXml, pathInfo)); // 设置mapperXml生成路径*/
+                    .other("dto") // 设置dto包名
+                    .pathInfo(Collections.singletonMap(OutputFile.mapperXml, pathInfo)); // 设置mapperXml生成路径
 
         });
         /**

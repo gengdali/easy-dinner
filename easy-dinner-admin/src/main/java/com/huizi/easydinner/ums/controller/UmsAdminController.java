@@ -1,11 +1,14 @@
 package com.huizi.easydinner.ums.controller;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.huizi.easydinner.api.CommonPage;
 import com.huizi.easydinner.api.CommonResult;
 import com.huizi.easydinner.ums.dto.UmsAdminLoginParam;
 import com.huizi.easydinner.ums.dto.UmsAdminParam;
 import com.huizi.easydinner.ums.entity.UmsAdmin;
 import com.huizi.easydinner.ums.service.UmsAdminService;
+import com.huizi.easydinner.ums.vo.UmsAdminVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,22 +40,15 @@ public class UmsAdminController {
     @Autowired
     private UmsAdminService umsAdminService;
 
-   /* @ApiOperation("根据用户名或姓名分页获取用户列表")
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ApiOperation("根据用户名或姓名分页获取用户列表")
+    @GetMapping("/adminList")
     @ResponseBody
-    public CommonResult<CommonPage<UmsAdmin>> list(@RequestParam(value = "keyword", required = false) String keyword,
-                                                   @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
-                                                   @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
-        List<UmsAdmin> adminList = umsAdminService.list(keyword, pageSize, pageNum);
+    public CommonResult<CommonPage<UmsAdminVO>> list(@RequestParam(value = "keyword", required = false) String keyword,
+                                                     @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
+                                                     @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
+
+        Page<UmsAdminVO> adminList = umsAdminService.adminList(keyword, new Page<>(pageNum, pageSize));
         return CommonResult.success(CommonPage.restPage(adminList));
-    }*/
-
-    @ApiOperation(value = "用户列表")
-    @PostMapping("/adminList")
-    public List<UmsAdmin> getUserInfoList() {
-        List<UmsAdmin> list = umsAdminService.list();
-        return list;
-
     }
 
     @ApiOperation(value = "用户注册")

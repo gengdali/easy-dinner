@@ -4,6 +4,7 @@ package com.huizi.easydinner.ums.service.impl;
 import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.huizi.easydinner.bo.AdminUserDetails;
 import com.huizi.easydinner.exception.Asserts;
@@ -14,6 +15,7 @@ import com.huizi.easydinner.ums.mapper.UmsAdminMapper;
 import com.huizi.easydinner.ums.mapper.UmsMenuMapper;
 import com.huizi.easydinner.ums.mapper.UmsResourceMapper;
 import com.huizi.easydinner.ums.service.UmsAdminService;
+import com.huizi.easydinner.ums.vo.UmsAdminVO;
 import com.huizi.easydinner.util.JwtTokenUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -130,5 +132,12 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
             return resourceList;
         }
         return resourceList;
+    }
+
+    @Override
+    public Page<UmsAdminVO> adminList(String keyword, Page<UmsAdmin> umsAdminVOPage) {
+
+        Page<UmsAdminVO> pageList = adminMapper.adminList(keyword, umsAdminVOPage);
+        return pageList;
     }
 }
