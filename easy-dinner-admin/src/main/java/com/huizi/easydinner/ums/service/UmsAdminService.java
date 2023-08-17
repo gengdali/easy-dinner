@@ -57,6 +57,12 @@ public interface UmsAdminService extends IService<UmsAdmin> {
      */
     List<UmsResource> getResourceList(Long adminId);
 
-
+    /**
+     * 获取后台用户列表
+     *
+     * @param keyword
+     * @param umsAdminVOPage
+     * @return
+     */
     Page<UmsAdminVO> adminList(String keyword, Page<UmsAdmin> umsAdminVOPage);
 }

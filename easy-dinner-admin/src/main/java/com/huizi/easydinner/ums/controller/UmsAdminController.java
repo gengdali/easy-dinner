@@ -42,7 +42,6 @@ public class UmsAdminController {
 
     @ApiOperation("根据用户名或姓名分页获取用户列表")
     @GetMapping("/adminList")
-    @ResponseBody
     public CommonResult<CommonPage<UmsAdminVO>> list(@RequestParam(value = "keyword", required = false) String keyword,
                                                      @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                                                      @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
@@ -52,8 +51,7 @@ public class UmsAdminController {
     }
 
     @ApiOperation(value = "用户注册")
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    @ResponseBody
+    @PostMapping(value = "/register")
     public CommonResult<UmsAdmin> register(@Validated @RequestBody UmsAdminParam umsAdminParam) {
         UmsAdmin umsAdmin = umsAdminService.register(umsAdminParam);
         if (umsAdmin == null) {
@@ -63,8 +61,7 @@ public class UmsAdminController {
     }
 
     @ApiOperation(value = "登录以后返回token")
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    @ResponseBody
+    @PostMapping(value = "/login")
     public CommonResult login(@Validated @RequestBody UmsAdminLoginParam umsAdminLoginParam) {
         String token = umsAdminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
         if (token == null) {
@@ -77,8 +74,7 @@ public class UmsAdminController {
     }
 
     @ApiOperation(value = "刷新token")
-    @RequestMapping(value = "/refreshToken", method = RequestMethod.GET)
-    @ResponseBody
+    @GetMapping(value = "/refreshToken")
     public CommonResult refreshToken(HttpServletRequest request) {
         String token = request.getHeader(tokenHeader);
         String refreshToken = umsAdminService.refreshToken(token);
@@ -92,8 +88,7 @@ public class UmsAdminController {
     }
 
     @ApiOperation(value = "登出功能")
-    @RequestMapping(value = "/logout", method = RequestMethod.POST)
-    @ResponseBody
+    @PostMapping(value = "/logout")
     public CommonResult logout() {
         return CommonResult.success(null);
     }
