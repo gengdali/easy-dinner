@@ -1,11 +1,10 @@
-package com.huizi.easydinner.log;/*
-package com.gw.personal.log;
+package com.huizi.easydinner.log;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.URLUtil;
 import cn.hutool.json.JSONUtil;
-import com.gw.personal.domain.WebLog;
-import com.gw.personal.util.RequestUtil;
+import com.huizi.easydinner.domain.WebLog;
+import com.huizi.easydinner.util.RequestUtil;
 import io.swagger.annotations.ApiOperation;
 import net.logstash.logback.marker.Markers;
 import org.aspectj.lang.JoinPoint;
@@ -31,17 +30,10 @@ import java.util.List;
 import java.util.Map;
 
 
-*/
 /**
  * 统一日志处理切面
- * <p>
  * 根据方法和传入的参数获取请求参数
- * <p>
- * 根据方法和传入的参数获取请求参数
- * <p>
- * 根据方法和传入的参数获取请求参数
- *//*
-
+ */
 
 
 @Aspect
@@ -50,7 +42,7 @@ import java.util.Map;
 public class WebLogAspect {
     private static final Logger LOGGER = LoggerFactory.getLogger(WebLogAspect.class);
 
-    @Pointcut("execution(public * com.gw.personal.*.*(..))||execution(public * com.gw.personal.*.controller.*.*(..))")
+    @Pointcut("execution(public * com.huizi.easydinner.*.*(..))||execution(public * com.huizi.easydinner.*.controller.*.*(..))")
     public void webLog() {
     }
 
@@ -102,11 +94,9 @@ public class WebLogAspect {
     }
 
 
-    */
-/**
- * 根据方法和传入的参数获取请求参数
- *//*
-
+    /**
+     * 根据方法和传入的参数获取请求参数
+     */
 
 
     private Object getParameter(Method method, Object[] args) {
@@ -142,4 +132,4 @@ public class WebLogAspect {
     }
 }
 
-*/
+
