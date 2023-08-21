@@ -9,8 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>org.huizi</groupId>
     <artifactId>easy-dinner-security</artifactId>
-
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -22,5 +23,4 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
     </dependencies>
-
 </project>

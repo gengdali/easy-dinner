@@ -1,4 +1,4 @@
-package com.huizi;
+package com.huizi.easydinner;
 
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
