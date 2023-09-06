@@ -1,24 +1,36 @@
 package com.huizi.easydinner.ums.controller;
 
 
+import cn.afterturn.easypoi.excel.ExcelExportUtil;
+import cn.afterturn.easypoi.excel.entity.ExportParams;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.huizi.easydinner.api.CommonPage;
 import com.huizi.easydinner.api.CommonResult;
+import com.huizi.easydinner.exception.Asserts;
+import com.huizi.easydinner.ums.dto.UmsAdminChildrenExportDto;
+import com.huizi.easydinner.ums.dto.UmsAdminExportDto;
 import com.huizi.easydinner.ums.dto.UmsAdminLoginParam;
 import com.huizi.easydinner.ums.dto.UmsAdminParam;
 import com.huizi.easydinner.ums.entity.UmsAdmin;
 import com.huizi.easydinner.ums.service.UmsAdminService;
 import com.huizi.easydinner.ums.vo.UmsAdminVO;
+import com.huizi.easydinner.util.ExcelByPOIUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -93,5 +105,33 @@ public class UmsAdminController {
         return CommonResult.success(null);
     }
 
+    @ApiOperation(value = "列表导出")
+    @PostMapping(value = "/export")
+    public void export(HttpServletRequest request, HttpServletResponse response) {
+        List<UmsAdmin> list = umsAdminService.list();
+        List<UmsAdminExportDto> collect = list.stream().map(s -> {
+            UmsAdminExportDto umsAdminExportDto = new UmsAdminExportDto();
+            BeanUtils.copyProperties(s, umsAdminExportDto);
+            return umsAdminExportDto;
+        }).collect(Collectors.toList());
+        collect.forEach(k -> {
+            ArrayList<UmsAdminChildrenExportDto> umsAdminChildrenExportDtos = new ArrayList<>();
 
+            UmsAdminChildrenExportDto umsAdminChildrenExportDto1 = new UmsAdminChildrenExportDto();
+            umsAdminChildrenExportDto1.setNumber("1");
+            UmsAdminChildrenExportDto umsAdminChildrenExportDto2 = new UmsAdminChildrenExportDto();
+            umsAdminChildrenExportDto2.setNumber("2");
+            umsAdminChildrenExportDtos.add(umsAdminChildrenExportDto1);
+            umsAdminChildrenExportDtos.add(umsAdminChildrenExportDto2);
+            k.setChildren(umsAdminChildrenExportDtos);
+        });
+        if (collect.size() > 0) {
+            ExportParams exportParams = new ExportParams();
+            Workbook wb = ExcelExportUtil.exportExcel(exportParams, UmsAdminExportDto.class, collect);
+            ExcelByPOIUtil.writeResponse("导出", wb, request, response);
+        } else {
+            Asserts.fail("无数据可下载");
+        }
+
+    }
 }

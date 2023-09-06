@@ -10,8 +10,8 @@
     <modules>
         <module>easy-dinner-common</module>
         <module>easy-dinner-security</module>
-        <module>easy-dinner-admin</module>
         <module>easy-dinner-mbg</module>
+        <module>easy-dinner-admin</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -45,7 +45,7 @@
         <lang3.version>3.12.0</lang3.version>
         <gson.version>2.8.6</gson.version>
         <dysmsapi20170525.version>2.0.1</dysmsapi20170525.version>
-        <easypoi.version>4.4.0</easypoi.version>
+        <easypoi.version>4.2.0</easypoi.version>
         <poi.version>5.2.3</poi.version>
         <springfox-swagger.version>3.0.0</springfox-swagger.version>
         <swagger-models.version>1.6.0</swagger-models.version>
@@ -152,9 +152,20 @@
                 <artifactId>dysmsapi20170525</artifactId>
                 <version>${dysmsapi20170525.version}</version>
             </dependency>
+            <!-- easypoi-->
             <dependency>
                 <groupId>cn.afterturn</groupId>
-                <artifactId>easypoi-spring-boot-starter</artifactId>
+                <artifactId>easypoi-base</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-web</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-annotation</artifactId>
                 <version>${easypoi.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
