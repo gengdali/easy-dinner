@@ -15,14 +15,17 @@ import com.huizi.easydinner.ums.entity.UmsAdmin;
 import com.huizi.easydinner.ums.service.UmsAdminService;
 import com.huizi.easydinner.ums.vo.UmsAdminVO;
 import com.huizi.easydinner.util.ExcelByPOIUtil;
+import com.huizi.easydinner.util.FileUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.tomcat.util.http.fileupload.FileUploadException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -133,5 +136,29 @@ public class UmsAdminController {
             Asserts.fail("无数据可下载");
         }
 
+    }
+
+    @ApiOperation("上传文件")
+    @PostMapping("/upload")
+    public CommonResult<String> upload(@RequestParam("file") MultipartFile file, String filePath) {
+        try {
+            FileUtils.uploadByFilePath(file, filePath);
+        } catch (FileUploadException e) {
+            e.printStackTrace();
+            return CommonResult.failed(e.getMessage());
+        }
+        return CommonResult.success("上传成功");
+    }
+
+    @ApiOperation("下载文件")
+    @PostMapping("/download")
+    public CommonResult<String> download(String filePath) {
+        try {
+            FileUtils.downLoadByFilePath(filePath);
+        } catch (FileUploadException e) {
+            e.printStackTrace();
+            return CommonResult.failed(e.getMessage());
+        }
+        return CommonResult.success("上传成功");
     }
 }
