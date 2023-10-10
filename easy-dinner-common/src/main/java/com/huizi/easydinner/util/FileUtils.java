@@ -91,4 +91,20 @@ public class FileUtils {
         outputStream.write(buffer);
         outputStream.flush();
     }
+
+    /**
+     * 移除指定路径文件
+     *
+     * @param filePath
+     * @throws IOException
+     */
+    public boolean removeFile(String filePath) throws IOException {
+        // path是指想要下载的文件的路径
+        File file = new File(filePath);
+        if (!file.exists()) {
+            throw new IOException("文件不存在");
+        }
+        boolean delete = file.delete();
+        return delete;
+    }
 }
