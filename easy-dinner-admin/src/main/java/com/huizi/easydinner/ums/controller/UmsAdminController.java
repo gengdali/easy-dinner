@@ -29,6 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -152,13 +153,13 @@ public class UmsAdminController {
 
     @ApiOperation("下载文件")
     @PostMapping("/download")
-    public CommonResult<String> download(String filePath) {
+    public CommonResult<String> download(String filePath, HttpServletResponse response) {
         try {
-            FileUtils.downLoadByFilePath(filePath);
-        } catch (FileUploadException e) {
+            FileUtils.downLoadByFilePath(filePath, response);
+        } catch (IOException e) {
             e.printStackTrace();
             return CommonResult.failed(e.getMessage());
         }
-        return CommonResult.success("上传成功");
+        return CommonResult.success("下载成功");
     }
 }

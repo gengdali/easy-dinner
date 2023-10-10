@@ -17,8 +17,8 @@ public class SwaggerConfig extends BaseSwaggerConfig {
     public SwaggerProperties swaggerProperties() {
         return SwaggerProperties.builder()
                 .apiBasePackage("com.huizi.easydinner")
-                .title("后台系统")
-                .description("后台相关接口文档")
+                .title("易餐饮后台系统")
+                .description("易餐饮后台相关接口文档")
                 .contactName("gengwei")
                 .version("1.0")
                 .enableSecurity(true)
