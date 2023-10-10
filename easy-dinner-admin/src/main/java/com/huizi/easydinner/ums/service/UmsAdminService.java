@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.huizi.easydinner.ums.dto.UmsAdminParam;
 import com.huizi.easydinner.ums.entity.UmsAdmin;
 import com.huizi.easydinner.ums.entity.UmsResource;
-import com.huizi.easydinner.ums.vo.UmsAdminVO;
+import com.huizi.easydinner.ums.vo.UmsAdminVo;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
@@ -64,5 +64,5 @@ public interface UmsAdminService extends IService<UmsAdmin> {
      * @param umsAdminVOPage
      * @return
      */
-    Page<UmsAdminVO> adminList(String keyword, Page<UmsAdmin> umsAdminVOPage);
+    Page<UmsAdminVo> adminList(String keyword, Page<UmsAdmin> umsAdminVOPage);
 }

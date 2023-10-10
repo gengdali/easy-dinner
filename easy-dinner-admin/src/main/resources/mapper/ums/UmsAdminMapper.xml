@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.huizi.easydinner.ums.mapper.UmsAdminMapper">
 
-    <select id="adminList" resultType="com.huizi.easydinner.ums.vo.UmsAdminVO">
+    <select id="adminList" resultType="com.huizi.easydinner.ums.vo.UmsAdminVo">
         select * from ums_admin
         where 1=1
         <if test="keyword != null and keyword !=''">

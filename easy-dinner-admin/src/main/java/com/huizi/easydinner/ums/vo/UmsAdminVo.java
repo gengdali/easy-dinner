@@ -10,7 +10,7 @@ import lombok.Data;
  * @DATE: 2023/8/11 16:24
  */
 @Data
-public class UmsAdminVO {
+public class UmsAdminVo {
     @ApiModelProperty(value = "id")
     private Long id;
 
@@ -28,7 +28,7 @@ public class UmsAdminVO {
 
     @ApiModelProperty(value = "备注信息")
     private String note;
-    
+
     @ApiModelProperty(value = "帐号启用状态：0->禁用；1->启用")
     private Integer status;
 }

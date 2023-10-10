@@ -13,7 +13,7 @@ import com.huizi.easydinner.ums.dto.UmsAdminLoginParam;
 import com.huizi.easydinner.ums.dto.UmsAdminParam;
 import com.huizi.easydinner.ums.entity.UmsAdmin;
 import com.huizi.easydinner.ums.service.UmsAdminService;
-import com.huizi.easydinner.ums.vo.UmsAdminVO;
+import com.huizi.easydinner.ums.vo.UmsAdminVo;
 import com.huizi.easydinner.util.ExcelByPOIUtil;
 import com.huizi.easydinner.util.FileUtils;
 import io.swagger.annotations.Api;
@@ -58,11 +58,11 @@ public class UmsAdminController {
 
     @ApiOperation("根据用户名或姓名分页获取用户列表")
     @GetMapping("/adminList")
-    public CommonResult<CommonPage<UmsAdminVO>> list(@RequestParam(value = "keyword", required = false) String keyword,
+    public CommonResult<CommonPage<UmsAdminVo>> list(@RequestParam(value = "keyword", required = false) String keyword,
                                                      @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                                                      @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
 
-        Page<UmsAdminVO> adminList = umsAdminService.adminList(keyword, new Page<>(pageNum, pageSize));
+        Page<UmsAdminVo> adminList = umsAdminService.adminList(keyword, new Page<>(pageNum, pageSize));
         return CommonResult.success(CommonPage.restPage(adminList));
     }
 

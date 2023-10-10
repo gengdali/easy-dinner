@@ -15,7 +15,7 @@ import com.huizi.easydinner.ums.mapper.UmsAdminMapper;
 import com.huizi.easydinner.ums.mapper.UmsMenuMapper;
 import com.huizi.easydinner.ums.mapper.UmsResourceMapper;
 import com.huizi.easydinner.ums.service.UmsAdminService;
-import com.huizi.easydinner.ums.vo.UmsAdminVO;
+import com.huizi.easydinner.ums.vo.UmsAdminVo;
 import com.huizi.easydinner.util.JwtTokenUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,9 +134,9 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
     }
 
     @Override
-    public Page<UmsAdminVO> adminList(String keyword, Page<UmsAdmin> umsAdminVOPage) {
+    public Page<UmsAdminVo> adminList(String keyword, Page<UmsAdmin> umsAdminVOPage) {
 
-        Page<UmsAdminVO> pageList = adminMapper.adminList(keyword, umsAdminVOPage);
+        Page<UmsAdminVo> pageList = adminMapper.adminList(keyword, umsAdminVOPage);
         return pageList;
     }
 }
