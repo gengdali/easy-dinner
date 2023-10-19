@@ -26,7 +26,7 @@ public class FileUtils {
      * @throws FileUploadException
      * @PROJECT_NAME: easy-dinner
      */
-    public static void uploadByFilePath(MultipartFile file, String filePath) throws FileUploadException {
+    public static String uploadByFilePath(MultipartFile file, String filePath) throws IOException {
         if (file.isEmpty()) {
             throw new FileUploadException("上传文件为空");
         }
@@ -37,19 +37,16 @@ public class FileUtils {
         // 获取文件扩展名
         String extension = originalFileName.substring(originalFileName.lastIndexOf("."));
         // 拼接新文件名
-        String fileName = String.valueOf(timestamp) + extension;
+        String fileName = timestamp + extension;
         File dest = null;
         dest = new File(filePath + "/" + fileName);
 
         if (!dest.getParentFile().exists()) {
             dest.getParentFile().mkdirs();
         }
-        try {
-            // 保存文件
-            file.transferTo(dest);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // 保存文件
+        file.transferTo(dest);
+        return fileName;
     }
 
     /**
@@ -98,7 +95,7 @@ public class FileUtils {
      * @param filePath
      * @throws IOException
      */
-    public boolean removeFile(String filePath) throws IOException {
+    public static boolean removeFile(String filePath) throws IOException {
         // path是指想要下载的文件的路径
         File file = new File(filePath);
         if (!file.exists()) {

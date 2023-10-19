@@ -19,7 +19,6 @@ import com.huizi.easydinner.util.FileUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.tomcat.util.http.fileupload.FileUploadException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -144,7 +143,7 @@ public class UmsAdminController {
     public CommonResult<String> upload(@RequestParam("file") MultipartFile file, String filePath) {
         try {
             FileUtils.uploadByFilePath(file, filePath);
-        } catch (FileUploadException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             return CommonResult.failed(e.getMessage());
         }
