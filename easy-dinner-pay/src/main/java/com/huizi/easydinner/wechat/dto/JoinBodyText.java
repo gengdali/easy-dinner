@@ -6,8 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * @author wuzhenzhong
- * 合单body
+ * @author 合单body
  */
 @Data
 public class JoinBodyText {

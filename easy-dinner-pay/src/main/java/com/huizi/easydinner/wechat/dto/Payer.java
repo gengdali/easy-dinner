@@ -4,12 +4,12 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * @author wuzhenzhong
+ * @author
  */
 @Data
 public class Payer {
 
     @ApiModelProperty(value = "用户标识")
     private String openid;
-    
+
 }
