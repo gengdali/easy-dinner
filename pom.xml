@@ -12,6 +12,7 @@
         <module>easy-dinner-security</module>
         <module>easy-dinner-mbg</module>
         <module>easy-dinner-admin</module>
+        <module>easy-dinner-pay</module>
     </modules>
     <packaging>pom</packaging>
 
