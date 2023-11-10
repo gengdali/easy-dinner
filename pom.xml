@@ -59,6 +59,7 @@
         <easy-dinner-mbg.version>1.0-SNAPSHOT</easy-dinner-mbg.version>
         <logstash-logback.version>7.2</logstash-logback.version>
         <jjwt.version>0.9.1</jjwt.version>
+        <okhttp3.version>4.9.3</okhttp3.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -185,6 +186,11 @@
                 <groupId>net.logstash.logback</groupId>
                 <artifactId>logstash-logback-encoder</artifactId>
                 <version>${logstash-logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp3.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

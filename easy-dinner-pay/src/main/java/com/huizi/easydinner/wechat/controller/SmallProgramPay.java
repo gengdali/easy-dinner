@@ -12,6 +12,7 @@ import com.huizi.easydinner.wechat.util.WeChatPayAesUtil;
 import com.huizi.easydinner.wechat.util.WeChatPayUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import okhttp3.HttpUrl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
