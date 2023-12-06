@@ -25,7 +25,7 @@ import java.io.IOException;
  * @author gw
  * @since 2023-05-19
  */
-@Api(tags = "账号管理")
+@Api(tags = "爬虫")
 @RestController
 @RequestMapping("/crawler")
 public class crawlerController {
