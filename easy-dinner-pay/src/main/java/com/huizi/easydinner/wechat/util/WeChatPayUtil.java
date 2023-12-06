@@ -2,7 +2,7 @@ package com.huizi.easydinner.wechat.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dd.tc.food.modules.pay.common.AppConstant;
+import com.huizi.easydinner.wechat.common.AppConstant;
 import okhttp3.HttpUrl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.Base64Utils;

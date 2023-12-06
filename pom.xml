@@ -13,6 +13,7 @@
         <module>easy-dinner-mbg</module>
         <module>easy-dinner-admin</module>
         <module>easy-dinner-pay</module>
+        <module>easy-dinner-datacrawler</module>
     </modules>
     <packaging>pom</packaging>
 
